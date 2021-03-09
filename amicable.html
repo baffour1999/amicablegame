@@ -1,0 +1,116 @@
+ <html>
+  <head> 
+  	   <style>
+  	        h1{
+    			padding:5%;
+    			text-align: center;
+    			font-weight: bold;
+    			color:darkred;
+    			font-weight: bold;
+    			border-width: 3px;
+    			background-color: yellow;
+    			height: 10%;
+    		}
+            body {
+    			text-align:center;
+    			font-family: "Bookman, URW Bookman L, serif";
+    			background-color: green;
+
+    		}
+
+    		#demodiv{
+    			font-weight: bold;
+
+    		}
+    	</style>
+  </head>
+  <body>
+  	    <h1> Amicable Numbers Game </h1>
+  		<form onsubmit="results();return false" id="frm1" method ="get">
+          <label for="firstnum">First Number: </label>
+           <input type="text" id="firstnum" name="firstnum" value=""><br>
+           <br>
+           <br>
+          <label for="secondnum">Second Number:</label>
+           <input type="text" id="secondnum" name="secondnum" value=""><br>
+           <br>
+           <input type="submit" value="Submit">
+
+           
+        </form> 
+          
+         
+
+        
+
+          <div id="demodiv"></div>
+        
+    <script type="text/javascript">
+    	
+        
+    	
+         
+        function isFactor(x,y ,arr){
+         	if (y % x == 0){
+                arr.push(x)
+         	}
+         
+         }
+
+        function findSum(a){
+        	let total = 0;
+        	for(k=0; k<a.length; k++){
+        		total = total + parseInt(a[k])
+
+        	}
+        	return total
+        }
+
+
+        function checkEqual(a,b,c){
+        	if (a == b) {
+        		return c
+        	}
+        	else{
+        		return d
+        	}
+        }
+    	
+        function results() {
+        var arr = new Array(2);
+        arr[0] = document.getElementById("firstnum").value;
+        arr[1] = document.getElementById("secondnum").value;
+        let numarr1 =[]
+        for (i=1; i<=arr[0]; i++){
+        	isFactor(i,arr[0],numarr1)
+        }
+        let numarr2 =[]
+        for(j = 1;j <=arr[1] ; j++){
+        	isFactor(j,arr[1],numarr2)
+        }
+        alert("Factors of " + arr[0] + " are : " + numarr1 + " and Factors of " + arr[1] + " are : " + numarr2)
+
+        let sumA = findSum(numarr1)
+        let sumB = findSum(numarr2)
+
+        
+        if (sumA == sumB){
+        	document.getElementById("demodiv").innerHTML = "The numbers " + arr[0] + " and " + arr[1] + " are amicable."
+        }
+        else{
+        	document.getElementById("demodiv").innerHTML = "The numbers " + arr[0] + " and " + arr[1] + " are not amicable."
+        }
+        
+
+         } 
+         
+         
+
+
+
+    	
+    </script>
+  	
+  </body>
+
+</html>
